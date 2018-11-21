@@ -38,6 +38,7 @@ Olhando pra o código acima, notamos que foi necessário instanciar uma nova lis
     Vamos resolver esse mesmo problema, mas dessa vez aplicando stream do java 8 :
 
 ```java
+
 public List<Pessoa> filtraPessoasAcimaDe25AnosTeste(List<Pessoa> pessoas){
     return pessoas.stream()
                   .filter(pessoa -> pessoa.getIdade() > 25)
