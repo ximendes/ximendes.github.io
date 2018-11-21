@@ -1,6 +1,6 @@
 <nav>
   <ul class="navigation-list">
-    {% assign pages_list = site.html_pages | sort:"nav_order" %}
+    <!-- {% assign pages_list = site.html_pages | sort:"nav_order" %}
     {% for node in pages_list %}
       {% unless node.nav_exclude %}
         {% if node.parent == nil %}
@@ -39,6 +39,9 @@
           </li>
         {% endif %}
       {% endunless %}
+    {% endfor %} -->
+    {% for post in site.posts %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
     {% endfor %}
   </ul>
 </nav>
