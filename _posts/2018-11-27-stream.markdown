@@ -1,0 +1,14 @@
+---
+layout: default
+title: Stream
+nav_order : 1
+has_children : true
+---
+
+# Stream
+
+{: .fw-400 }
+Stream é uma nova API, incluída  no java 8,  trazendo novos  recursos  para manipular coleções,  tornando mais simples
+e eficiente a forma como trabalhamos com coleções até então. Essa nova API segue alguns princípios de programação funcional,  proporcionando uma forma diferente de lidar com conjuntos de elementos, oferecendo ao desenvolvedor uma maneira simples  de escrever código que resulta em facilidade de manutenção sem efeitos indesejados em tempo de execução.
+{: .lh-default}  
+Outro ponto interessante  é que o desenvolver não tem mais a preocupação de programar o comportamento de um loop, pois isso fica a cargo da API, ou seja o desenvolvedor fica responsável apenas pela regra de negócio.
