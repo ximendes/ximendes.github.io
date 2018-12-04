@@ -4,3 +4,55 @@ title: Map
 nav_order: 2
 parent : Stream
 ---
+
+# Map
+
+{: .fw-400 }
+O método map()é uma operação intermediária do Stream, ele permite mapear um objeto para outro tipo de objeto.
+Considerando um objeto do tipo a seguir:
+
+```java
+public class Pessoa {
+        private String nome;
+        private Integer idade;
+        private String sexo;
+        //getter and setter
+    }
+```
+{: .fw-400 }
+Apartir de uma lista do tipo pessoa, precisamos adicionar em uma outra lista apenas a idade das pessoas, então implementamos o seguinte método
+
+
+```java
+public List<Integer> idades(List<Pessoa> pessoas){
+    List<Integer> idades = new ArrayList<>();
+    for(Pessoa pessoa : pessoas){
+            idades.add(pessoa.getIdade());
+    }
+    return idades;
+}
+```
+
+{: .fw-400 }
+Agora o mesmo código, mas utilizando o método map() :
+
+```java
+public List<Integer> idades(List<Pessoa> pessoas){
+     return pessoas.stream()
+                   .map(Pessoa::getIdade)
+                   .collect(Collectors.toList());
+}
+```
+{: .fw-400 }
+Bem mais legível não é mesmo!? …
+Note que aqui ao executar o método map() utilizamos reference method ao invés de uma expressão lambda, ou seja estamos fazendo referencia ao método getIdade() da classe Pessoa e em seguida, colecionado a idade em um List();
+Aqui também podemos combinar o método filter(). Caso fosse necessário retornar apenas as idades maiores de 25, teríamos algo como :  
+
+```java
+public List<Integer> idades(List<Pessoa> pessoas){
+     return pessoas.stream()
+                   .map(Pessoa::getIdade)
+                   .filter(idade -> idade > 25)
+                   .collect(Collectors.toList());
+}
+```

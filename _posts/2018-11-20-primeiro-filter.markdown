@@ -10,7 +10,7 @@ parent : Stream
 
 
 {: .fw-400 }
-O método `filter()` como o nome sugere, é utilizado para filtrar dados de um `Stream`. Nesse post vamos aprender como utilizar esse método, com
+O método `filter()` como o nome sugere, é utilizado para filtrar dados de um `Stream`. Aqui vamos aprender como utilizar esse método, com
 um exemplo simples, e fazendo uma comparação de como era feito antes do Java 8.
 {: .lh-default}    
 Imagine o seguinte objeto :
