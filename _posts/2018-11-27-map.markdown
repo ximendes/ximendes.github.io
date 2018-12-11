@@ -8,7 +8,7 @@ parent : Stream
 # Map
 
 {: .fw-400 }
-O método map()é uma operação intermediária do Stream, ele permite mapear um objeto para outro tipo de objeto.
+O método `map()` assim como o método `filter()` é uma operação intermediária do `Stream`, ele permite mapear um objeto para outro tipo de objeto.
 Considerando um objeto do tipo a seguir:
 
 ```java
@@ -20,7 +20,7 @@ public class Pessoa {
     }
 ```
 {: .fw-400 }
-Apartir de uma lista do tipo pessoa, precisamos adicionar em uma outra lista apenas a idade das pessoas, então implementamos o seguinte método
+Apartir de um `List<Pessoa>`, precisamos adicionar em uma outra lista apenas a idade das pessoas, então realizamos a seguinte implementação :
 
 
 ```java
@@ -34,7 +34,7 @@ public List<Integer> idades(List<Pessoa> pessoas){
 ```
 
 {: .fw-400 }
-Agora o mesmo código, mas utilizando o método map() :
+Agora o mesmo código, mas utilizando o método `map()` :
 
 ```java
 public List<Integer> idades(List<Pessoa> pessoas){
@@ -45,8 +45,8 @@ public List<Integer> idades(List<Pessoa> pessoas){
 ```
 {: .fw-400 }
 Bem mais legível não é mesmo!? …
-Note que aqui ao executar o método map() utilizamos reference method ao invés de uma expressão lambda, ou seja estamos fazendo referencia ao método getIdade() da classe Pessoa e em seguida, colecionado a idade em um List();
-Aqui também podemos combinar o método filter(). Caso fosse necessário retornar apenas as idades maiores de 25, teríamos algo como :  
+Note que aqui ao executar o método `map()` utilizamos `reference method` ao invés de uma expressão `lambda`, ou seja estamos fazendo referência ao método `getIdade()` da classe `Pessoa` e em seguida, colecionado a idade em um `List<>`.
+Aqui também podemos combinar o método `filter()`. Caso fosse necessário retornar apenas as idades maiores de 25, então teríamos algo como :  
 
 ```java
 public List<Integer> idades(List<Pessoa> pessoas){

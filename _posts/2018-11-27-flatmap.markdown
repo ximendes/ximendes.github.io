@@ -4,3 +4,71 @@ title: Flat Map
 nav_order: 3
 parent : Stream
 ---
+
+
+# Flat Map
+
+{: .fw-400 }
+
+O método `flatMap()` é utilizado como operação de nivelamento, ou seja após aplicar o método `map()` precisamos nivelar todos os objetos.
+Isso se faz necessário em algumas situações, vou tentar deixar mais claro no exemplo a seguir.
+
+Imaginando os seguintes objetos:
+
+```java
+public class Pessoa {
+         private String nome;
+         private Integer idade;
+         private String sexo;
+         private List<Endereco> enderecos;
+        //getter and setter
+    }
+
+public class Endereco {
+      private String rua;
+      private Integer cep;
+      //getter and setter
+   }
+```
+{: .fw-400 }
+
+Apartir de um `List<Pessoa>`, precisamos retornar um `List<Endereco>`, até o java 7 realizávamos a seguinte implementação :
+
+```java
+public List<Endereco> enderecos(List<Pessoa> pessoas){
+    List<Endereco> enderecos = new ArrayList<>();
+    for(Pessoa pessoa : pessoas){
+            enderecos.addAll(pessoa.getEnderecos());
+    }
+    return enderecos;
+}
+```
+
+{: .fw-400 }
+
+Agora, se tentarmos implementar apenas utilizamo o método `map()`
+
+```java
+public List<Endereco> enderecos(List<Pessoa> pessoas){
+      List<List<Endereco>> enderecos = pessoas.stream()
+                                              .map(Pessoa::getEnderecos)
+                                              .collect(Collectors.toList());
+  return enderecos;                                        
+}
+```
+{: .fw-400 }
+
+Nosso código iria quebrar, pois após mapear os enderecos e colecionar para um lista o resultado é uma lista de listas.
+E é ai que o `flatMap()` nivela todos os objetos :
+
+
+```java
+public List<Endereco> enderecos(List<Pessoa> pessoas){
+      return pessoas.stream()
+                    .map(Pessoa::getEnderecos)
+                    .flatMap(Collection::stream)
+                    .collect(Collectors.toList());
+}
+```
+
+Aplicando o método `flatMap()` conseguimos colecionar todos os endereços para apenas uma lista;
